@@ -8,7 +8,7 @@ namespace New_Tech.Repositorio
 {
     public class ProdutoRepositorio(IConfiguration configuration)
     {
-        private readonly string _conexaoMySQL = configuration.GetConnectionString("ConexaoMySQL");
+        private readonly string _conexaoMySQL = configuration.GetConnectionString("conexaoMySQL");
 
         public void Cadastrar(Produtos produto)
         {
@@ -35,13 +35,13 @@ namespace New_Tech.Repositorio
                 {
                     conexao.Open();
 
-                    MySqlCommand cmd = new MySqlCommand("Update Produtos set Nome=@Nomes, Descricao=@Descricao, Preco=@Preco, Quantidade=@Quantidade" + "where Id= @Id", conexao);
+                    MySqlCommand cmd = new MySqlCommand("Update Produtos set Nome=@nome, Descricao=@descricao, Preco=@preco, Quantidade=@quantidade " + " where Id=@id ", conexao);
 
-                    cmd.Parameters.Add("@Id", MySqlDbType.Int32).Value = produto.Id;
-                    cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = produto.Nome;
-                    cmd.Parameters.Add("@Descricao", MySqlDbType.VarChar).Value = produto.Descricao;
-                    cmd.Parameters.Add("@Preco", MySqlDbType.Decimal).Value = produto.Preco;
-                    cmd.Parameters.Add("@Quantidade", MySqlDbType.Int32).Value = produto.Quantidade;
+                    cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = produto.Id;
+                    cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = produto.Nome;
+                    cmd.Parameters.Add("@descricao", MySqlDbType.VarChar).Value = produto.Descricao;
+                    cmd.Parameters.Add("@preco", MySqlDbType.Decimal).Value = produto.Preco;
+                    cmd.Parameters.Add("@quantidade", MySqlDbType.Int32).Value = produto.Quantidade;
                     int linhasAfetadas = cmd.ExecuteNonQuery();
                     return linhasAfetadas > 0;
                 }
@@ -98,8 +98,8 @@ namespace New_Tech.Repositorio
             {
                 conexao.Open();
 
-                MySqlCommand cmd = new MySqlCommand("Select * from Produtos where Id=@Id ");
-                cmd.Parameters.AddWithValue("@Íd", id);
+                MySqlCommand cmd = new MySqlCommand("SELECT * from Produtos where Id=@id", conexao);
+                cmd.Parameters.AddWithValue("@id", id);
 
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 

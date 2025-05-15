@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using New_Tech.Models;
 using New_Tech.Repositorio;
+using Org.BouncyCastle.Tls;
 
 
 namespace New_Tech.Controllers
@@ -20,20 +21,17 @@ namespace New_Tech.Controllers
             return View();
         }
 
-
-
         [HttpPost]
-        public IActionResult Login(string email, string senha)
+        public IActionResult Login(string Email, string senha)
         {
-            var usuario = _loginRepositorio.ObterUsuario(email);
+            var usuario = _loginRepositorio.ObterUsuario(Email);
             if (usuario != null && usuario.Senha == senha)
             {
                 return RedirectToAction("Index", "Produto");
             }
-
+           
             ModelState.AddModelError("", "Erro, informações invalidas");
             return View();
         }
     }
 }
-

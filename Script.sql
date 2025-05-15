@@ -21,3 +21,5 @@ Preco decimal(10,2) not null,
 Quantidade int not null
 );
 
+insert into Usuarios(Nome, Email, Senha)
+			values('Admin','admin@admin','12345678');

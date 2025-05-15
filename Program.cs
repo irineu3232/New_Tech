@@ -1,10 +1,12 @@
+using New_Tech.Repositorio;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<New_Tech.Repositorio.LoginRepositorio>();
-builder.Services.AddScoped<New_Tech.Repositorio.ProdutoRepositorio>();
+builder.Services.AddScoped<LoginRepositorio>(); 
+builder.Services.AddScoped<ProdutoRepositorio>();
 
 var app = builder.Build();
 

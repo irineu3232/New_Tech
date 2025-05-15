@@ -16,8 +16,10 @@ namespace New_Tech.Controllers
 
         public IActionResult Index()
         {
-            return View(_produtoRepositorio.TodosProdutos);
+            return View(_produtoRepositorio.TodosProdutos());
         }
+
+ 
 
         public IActionResult CadastrarProduto()
         {
