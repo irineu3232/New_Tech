@@ -10,7 +10,7 @@ namespace New_Tech.Repositorio
         //Cria o construtor... ele lê os campos inseridos no MySQL.
         private readonly string _conexaoMySQL = configuration.GetConnectionString("ConexaoMySQL");
 
-
+        // Login, ele vai comprar com o MySQL e ver se são verdadeiros ou não.
         public Usuarios ObterUsuario(string email)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))
