@@ -5,11 +5,11 @@ using New_Tech.Models;
 
 namespace New_Tech.Controllers
 {
-    public class ProdutosController : Controller
+    public class ProdutoController : Controller
     {
         private readonly ProdutoRepositorio _produtoRepositorio;
 
-        public ProdutosController(ProdutoRepositorio produtoRepositorio)
+        public ProdutoController(ProdutoRepositorio produtoRepositorio)
         {
             _produtoRepositorio = produtoRepositorio;
         }
@@ -25,7 +25,7 @@ namespace New_Tech.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarProduto(Produto produto)
+        public IActionResult CadastrarProduto(Produtos produto)
         {
             _produtoRepositorio.Cadastrar(produto);
             return RedirectToAction(nameof(Index));
@@ -42,7 +42,7 @@ namespace New_Tech.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditarProduto(int id, [Bind("Id, Nome,Descricao,Preco,Qauntidade")] Produto produto)
+        public IActionResult EditarProduto(int id, [Bind("Id, Nome,Descricao,Preco,Qauntidade")] Produtos produto)
         {
             if (id != produto.Id)
             {

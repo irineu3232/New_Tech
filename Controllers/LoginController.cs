@@ -15,7 +15,7 @@ namespace New_Tech.Controllers
         }
 
 
-        public IActionResult ChecarUsuario()
+        public IActionResult Login()
         {
             return View();
         }
@@ -23,7 +23,7 @@ namespace New_Tech.Controllers
 
 
         [HttpPost]
-        public IActionResult ChecarUsuario(string email, string senha)
+        public IActionResult Login(string email, string senha)
         {
             var usuario = _loginRepositorio.ObterUsuario(email);
             if (usuario != null && usuario.Senha == senha)
