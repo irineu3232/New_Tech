@@ -1,0 +1,21 @@
+﻿*
+{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+table
+{
+   
+}
+
+td {
+
+}
+
+tr {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-family: sans-serif;
+}
