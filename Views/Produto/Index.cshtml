@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<New_Tech.Models.Produtos>
 
-    <link src="../wwwrot/css/index.css" rel="Stylesheet" />
-   
+    <link href="../wwwroot/css/Index.css" rel="stylesheet" />
 <p>
     <a asp-controller="Produto" asp-action="CadastrarProduto" class="btn btn-primary">Cadastrar Produto</a>
 </p>
-<table>
+<table class="tb">
     <thead>
 
-        <tr>
+        <tr class="tr">
             <th>
                 @Html.DisplayNameFor(Model => Model.Id)
             </th>
@@ -30,7 +29,7 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="tr">
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
